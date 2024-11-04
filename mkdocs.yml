@@ -1,0 +1,26 @@
+repo_url: https://github.com/SBD1/2024.2-harry-potter
+repo_name: 2024.2 - Harry Potter
+
+site_name: Harry Potter
+
+nav:
+  - Home: "index.md"
+
+theme:
+  name: material
+  logo: images/plataform.png
+  favicon: images/plataform.png
+  features:
+    - navigation.tabs
+  palette:
+    - scheme: default
+      toggle: 
+        icon: material/toggle-switch-off-outline
+        name: Dark mode
+      primary: brown
+    
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Light mode
+      primary: brown
