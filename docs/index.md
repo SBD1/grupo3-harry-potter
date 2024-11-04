@@ -6,7 +6,7 @@ O universo de Harry Potter é mundialmente conhecido. Sua primeira aparição fo
 <div align="center"><img src="images/hogwarts.jpg" height=auto width=auto></div>
 
 ## Sobre o Jogo
-No nosso jogo, você assumirá o papel de um jovem bruxo que começa sua jornada acadêmica na escola de magia e bruxaria de Hogwarts. Enquanto explora o mundo mágico, você enfrentará um bruxo das trevas e seus seguidores, que estão em busca de um artefato perdido. Este artefato, criado pelos quatro fundadores de Hogwarts, foi responsável por garantir a paz e a segurança da escola por décadas. Sua missão é recuperar o artefato para garantir a paz e a segurança de Hogwarts.
+No nosso jogo, você assumirá o papel de um jovem bruxo que começa sua jornada escolar na escola de magia e bruxaria de Hogwarts. Enquanto explora o mundo mágico, você enfrentará um bruxo das trevas e seus seguidores, que estão em busca de um artefato perdido. Este artefato, criado pelos quatro fundadores de Hogwarts, foi responsável por garantir a paz e a segurança da escola por décadas. Sua missão é recuperar o artefato para garantir a paz e a segurança de Hogwarts.
 
 ## Equipe
 <center>
