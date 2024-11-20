@@ -1,4 +1,4 @@
-# 2024.2 - Harry Potter
+# 2024.2 - Harry Potter.
 
 ## Sobre o Universo
 O universo de Harry Potter é mundialmente conhecido. Sua primeira aparição foi nos livros homônimos, que se tornaram um fenômeno global. Após todo o sucesso dos livros, a séria foi adaptada para o cinema, inspirou jogos eletrônicos, peças de teatro e até mesmo parques temáticos. Até hoje, a franquia mantém uma legião de fãs de todas as idades ao redor do mundo.
