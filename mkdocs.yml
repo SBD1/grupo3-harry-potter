@@ -5,6 +5,8 @@ site_name: Harry Potter
 
 nav:
   - Home: "index.md"
+  - Documentacoes:
+    - "modulo1/MER_HarryPotter_v1.0.md"
 
 theme:
   name: material
