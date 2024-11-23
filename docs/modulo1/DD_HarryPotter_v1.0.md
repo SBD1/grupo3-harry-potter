@@ -1,3 +1,8 @@
+## Histórico de Versões
+| Versão | Descrição                     | Autor                                                        |
+| :----: |  ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `1.0` |  Criação do documento de Dicionário de Dados             | [André Maia](https://github.com/andre-maia51)                               |
+
 ## **Jogador**  
 **Descrição:** Representa o jogador no jogo, com atributos relacionados à vida, nível, nome, inventário, casa, área e habilidades.
 
