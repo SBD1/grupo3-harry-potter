@@ -30,10 +30,10 @@ O MER é uma ferramenta usada para representar a estrutura de um banco de dados 
 - **Mapa**: <ins>id-mapa</ins>, regiao;
 - **NPC**: <ins>id-NPC</ins>, instancia-NPC;
     - **InstanciaNPC**: nome, tipo-NPC, falas;
-    - **Professor**: casa, disciplina, item, vantagens;
-    - **Inimigo**: pontos-vida, habilidades;
-    - **Aluno**: casa, item, vantagens;
-    - **Fred e Jorge**: inventarios, itens, area.
+        - **Professor**: casa, disciplina, item, vantagens;
+        - **Inimigo**: pontos-vida, habilidades;
+        - **Aluno**: casa, item, vantagens;
+        - **Fred e Jorge**: inventarios, itens, area.
 - **Habilidades**: <ins>id-habilidade</ins>, tipo, nível;
 - **Item**: <ins>id-item</ins>, instancia-item;
     - **Poção**: tipo, efeito;
