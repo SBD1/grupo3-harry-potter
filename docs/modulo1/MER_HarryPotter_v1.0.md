@@ -1,143 +1,114 @@
 ## Histórico de Versões
 | Versão | Descrição                     | Autor                                                        |
 | :----: |  ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `1.0` |  Criação do documento MER             | [Pedro Henrique](https://github.com/PhFariaa)                               |
+| `1.0` |  Criação e preenchimento do documento MER             | [Pedro Henrique](https://github.com/PhFariaa)                               |
 |`1.1`| Adição do MER no GitHub |[André Maia](https://github.com/andre-maia51) |
+|`1.2`| Alteração das entidades, atributos e relacionamentos do MER |[André Maia](https://github.com/andre-maia51) |
 
 # MER - Modelo Entidade Relacionamento
 O MER é uma ferramenta usada para representar a estrutura de um banco de dados de forma conceitual, destacando as entidades que o compõem os relacionamentos entre elas.
 
 ## 1. Entidades
-- **Jogador**
+- **Personagem**
+    - **Jogador (PC)**
+    - **NPC**
+        - **Professor**
+        - **Aluno**
+        - **Inimigo**
+        - **Fred e Jorge**
 - **Inventário**
 - **Casa**
 - **Área**
 - **Região**
 - **Mapa**
-- **NPC (Professor / Inimigo / Aluno / Fred e Jorge)**
-- **InstanciaNPC**
-- **Feitiços**
-- **Habilidades (Inteligência / Coragem / Lealdade / Ambição)**
-- **Item (Poção / Livros)**
+- **Feitiço**
+- **Habilidade**
+    - **Inteligência**
+    - **Coragem**
+    - **Lealdade**
+    - **Ambição**
+- **Item**
+    - **Livro**
+    - **Poção**
 - **Missão**
 
 ## 2. Atributos
-- **Jogador**: <ins>id-jogador</ins>, vida, nivel, nome, inventario, casa, area, habilidades, feitico;
-- **Inventário**: <ins>id-inventario</ins>, itens, tamanho, id-jogador;
+- **Personagem**: <ins>id-personagem</ins>, vida, nivel, nome;
+    - **Jogador (PC)**: varinha;
+    - **NPC**: falas;
+        - **Professor**: vantagens, disciplina;
+        - **Aluno**: vantagens;
+        - **Inimigo**: N/A;
+        - **Fred e Jorge**: N/A.
+- **Inventário**: <ins>id-inventario</ins>, itens, tamanho;
 - **Casa**: <ins>id-casa</ins>, nome-casa, professor-responsavel, vantagens, alunos;
 - **Área**: <ins>id-area</ins>, area-sul, area-norte, area-leste, area-oeste;
 - **Região**: <ins>id-regiao</ins>, descricao-regiao;
-- **Mapa**: <ins>id-mapa</ins>, regiao;
-- **NPC**: <ins>id-NPC</ins>, instancia-NPC;
-    - **InstanciaNPC**: nome, tipo-NPC, falas;
-        - **Professor**: casa, disciplina, item, vantagens;
-        - **Inimigo**: pontos-vida, habilidades;
-        - **Aluno**: casa, item, vantagens;
-        - **Fred e Jorge**: inventarios, itens, area.
-- **Habilidades**: <ins>id-habilidade</ins>, tipo, nível;
-- **Item**: <ins>id-item</ins>, instancia-item;
+- **Mapa**: <ins>id-mapa</ins>;
+- **Habilidade**: <ins>id-habilidade</ins>, nivel;
+- **Item**: <ins>id-item</ins>;
     - **Poção**: tipo, efeito;
-    - **Livros**: habilidade, paginas.
-- **Missão**: <ins>id-missao</ins>, recompensas, participantes;
+    - **Livros**: habilidade, nome-feitico.
+- **Missão**: <ins>id-missao</ins>, recompensa, participantes;
 - **Feitiços**: <ins>id-feitico</ins>, tipo-feitico, habilidade-requerida.
 
 ## 3. Relacionamentos
-**Jogador - Inventário**
+**Personagem - Inventário**
+- Um personagem **possui** um inventário e um inventário pode ser possuído por um ou mais personagens;
+- Cardinalidade: (1:N).
 
-- Um jogador possui um inventário;
-- Cardinalidade: (1, 1).
+**Personagem - Habilidade**
+- Um personagem **possui** uma ou mais habilidades e uma habilidade pode ser possuída por zero ou mais personagens;
+- Cardinalidade: (M:N).
 
-**Jogador - Casa**
+**Personagem - Missão**
+- Um personagem **participa** de uma ou mais missões e uma missão pode ser composta por um ou mais personagens;
+- Cardinalidade: (M:N).
 
-- Um jogador tem uma casa;
-- Cardinalidade: (1, 1).
+**Personagem - Área**
+- Um personagem **está** em uma área e uma área pode conter zero ou mais personagens;
+- Cardinalidade: (1:N).
 
-**Jogador - Área**
+**Jogador(PC) - NPC**
+- Um jogador **interage** com zero ou mais NPCs e um NPC pode interagir com zero ou mais jogadores;
+- Cardinalidade: (M:N).
 
-- Um jogador está em uma área, e uma área pode conter vários jogadores; 
-- Cardinalidade: (N, 1).
+**Jogador(PC) - Casa**
+- Um jogador **pertence** a uma casa e uma casa possui um ou mais jogadores;
+- Cardinalidade: (1:N).
 
-**Jogador - NPC**
+**Professor - Casa**
+- Um professor **pertence** a uma casa e uma casa possui um ou mais professores;
+- Cardinalidade: (1:N).
 
-- Um jogador interage com vários NPCs, e um NPC pode interagir com vários jogadores; 
-- Cardinalidade: (M, N).
+**Aluno - Casa**
+- Um aluno **pertence** a uma casa e uma casa possui um ou mais alunos;
+- Cardinalidade: (1:N).
 
-**Jogador - Feitiço**
-
-- Um jogador conjura vários feitiços, e um feitiço pode ser conjurado por vários jogadores;
-- Cardinalidade: (M, N).
-
-**Jogador - Habilidade**
-
-- Um jogador tem várias habilidades, e uma habilidade é possuída por vários jogadores;
-- Cardinalidade: (M, N).
-
-**Jogador - Itens**
-
-- Um jogador tem vários itens, e um item pode estar com vários jogadores;
-- Cardinalidade: (M, N).
-
-**Jogador - Missão**
-
-- Um jogador participa de várias missões, e uma missão está atrelada a um jogador;
-- Cardinalidade: (1, N).
-
-**Inventário - NPC**
-
-- Um inventário pode ser possuído por vários NPCs, e um NPC possui um inventário;
-- Cardinalidade: (1, N).
-
-**Casa - NPC**
-
-- Uma casa está atrelada a um NPC, e um NPC tem uma casa;
-- Cardinalidade: (1, 1).
-
-**Área - NPC**
-
-- Uma área pode conter nários NPCs, e um NPC está em uma área;
-- Cardinalidade: (N, 1).
-
-**Área - Área**
-
-- Uma área pode estar conectada a várias outras áreas;
-- Cardinalidade: (M, N).
+**Fred e Jorge - Casa**
+- Fred e Jorge **pertencem** a uma casa e uma casa possui a dupla unicamente;
+- Cardinalidade: (1:1).
 
 **Área - Região**
-
-- Uma área pertence a uma região, e uma região contém várias áreas;
-- Cardinalidade: (N, 1).
+- Uma área **pertence** a uma região e uma região possui zero ou mais áreas;
+- Cardinalidade: (1:N).
 
 **Região - Mapa**
-
-- Uma região está em um mapa, e um mapa possui várias regiões;
-- Cardinalidade: (N, 1).
+- Uma região **pertence** a um mapa e um mapa possui zero ou mais regiões;
+- Cardinalidade: (1:N).
 
 **Professor - Feitiço**
-
-- Um professor ensina vários feitiços, e um feitiço pode ser ensinado vários professores;
-- Cardinalidade: (M, N).
-
-**Professor - Jogador**
-
-- Um professor fala com um jogador, e um jogador fala com vários professores;
-- Cardinalidade: (N, 1).
-
-**Habilidades - Casa**
-
-- Uma habilidade é influenciada por uma casa, e uma casa influencia várias habilidades;
-- Cardinalide: (N, 1).
-
-**Poção - Inventário**
-
-- Uma poção pode estar em vários inventários, e um inventário pode conter várias poções;
-- Cardinalidade: (M, N).
+- Um professor **ensina** um ou mais feitiços e um feitiço pode ser ensinado por um ou mais professores;
+- Cardinalidade: (M:N).
 
 **Livro - Feitiço**
-
-- Um livro ensina vários feitiços, e um feitiço pode estar em vários livros;
-- Cardinalidade: (M, N).
+- Um livro **ensina** um ou mais feitiços e um feitiço pode ser ensinado por um ou mais livros;
+- Cardinalidade: (M:N).
 
 **Feitiço - Habilidade**
+- Um feitiço **requer** uma ou mais habilidades e uma habilidade por ser requerida por um ou mais feitiços;
+- Cardinalidade: (M:N).
 
-- Um feitiço requer várias habilidades, e uma habilidade é necessária para vários feitiços;
-- Cardinalidade: (M, N).
+**Inventário - Item**
+- Um inventário **possui** zero ou mais itens e um item pode estar contido em zero ou mais inventários;
+- Cardinalidade: (M:N).
