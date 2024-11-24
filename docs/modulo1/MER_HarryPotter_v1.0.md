@@ -40,7 +40,7 @@ O MER é uma ferramenta usada para representar a estrutura de um banco de dados 
         - **Aluno**: vantagens;
         - **Inimigo**: N/A;
         - **Fred e Jorge**: N/A.
-- **Inventário**: <ins>id-inventario</ins>, itens, tamanho;
+- **Inventário**: <ins>id-inventario</ins>, tamanho;
 - **Casa**: <ins>id-casa</ins>, nome-casa, professor-responsavel, vantagens, alunos;
 - **Área**: <ins>id-area</ins>, area-sul, area-norte, area-leste, area-oeste;
 - **Região**: <ins>id-regiao</ins>, descricao-regiao;
