@@ -4,6 +4,8 @@
 | `1.0` |  Criação do documento de Dicionário de Dados             | [André Maia](https://github.com/andre-maia51)                               |
 | `1.1` |  Alteração nas tabelas das entidades             | [André Maia](https://github.com/andre-maia51)                               |
 
+# DD - Dicionário de Dados
+O dicionário de dados é um documento que contém informações detalhadas sobre os dados em um banco de dados.
 
 ## **Personagem**  
 **Descrição:** Representa o personagem do jogo, incluindo os NPC e o PC.
@@ -60,7 +62,7 @@
 
 ---
 
-## **Fred e Jorge**  
+### **Fred e Jorge**  
 **Descrição:** Representa o Fred e Jorge.
 
 | Nome            | Descrição                                    | Tipo de dado | Tamanho | Restrições de domínio                           |
