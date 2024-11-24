@@ -2,21 +2,75 @@
 | Versão | Descrição                     | Autor                                                        |
 | :----: |  ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | `1.0` |  Criação do documento de Dicionário de Dados             | [André Maia](https://github.com/andre-maia51)                               |
+| `1.1` |  Alteração nas tabelas das entidades             | [André Maia](https://github.com/andre-maia51)                               |
 
-## **Jogador**  
+
+## **Personagem**  
+**Descrição:** Representa o personagem do jogo, incluindo os NPC e o PC.
+
+| Nome            | Descrição                                    | Tipo de dado | Tamanho | Restrições de domínio                           |
+|-----------------|----------------------------------------------|--------------|---------|-------------------------------------------------|
+| id_personagem     | Identificador único do personagem               | int          | 4       | **PK**, **IDENTITY**, **NOT NULL**              |
+| vida            | Pontuação de vida do personagem                 | int          | 4       | **NOT NULL**, 0 <= vida <= 100                  |
+| nivel           | Nível do personagem                             | int          | 4       | **NOT NULL**, 1 <= nivel <= 100                 |
+| nome            | Nome do personagem                              | Varchar      | 100     | **NOT NULL**                                    |
+| id_inventario   | Relacionamento com a entidade Inventário     | int          | 4       | **FK** para `Inventario(id_inventario)`, **NOT NULL**         |
+| id_area         | Relacionamento com a entidade Área           | int          | 4       | **FK** para `Area(id_area)`, **NOT NULL**                     |
+| id_habilidade   | Relacionamento com a entidade Habilidade    | int          | 4       | **FK** para `Habilidade(id_habilidade)`        |
+| id_missão      | Relacionamento com a entidade Missão       | int          | 4       | **FK** para `Missão(id_missao)`              |
+
+---
+
+## **Jogador (PC)**  
 **Descrição:** Representa o jogador no jogo, com atributos relacionados à vida, nível, nome, inventário, casa, área e habilidades.
 
 | Nome            | Descrição                                    | Tipo de dado | Tamanho | Restrições de domínio                           |
 |-----------------|----------------------------------------------|--------------|---------|-------------------------------------------------|
-| id_jogador      | Identificador único do jogador               | int          | 4       | **PK**, **IDENTITY**, **NOT NULL**              |
-| vida            | Pontuação de vida do jogador                 | int          | 4       | **NOT NULL**, 0 <= vida <= 100                  |
-| nivel           | Nível do jogador                             | int          | 4       | **NOT NULL**, 1 <= nivel <= 100                 |
-| nome            | Nome do jogador                              | Varchar      | 100     | **NOT NULL**                                    |
-| id_inventario   | Relacionamento com a entidade Inventário     | int          | 4       | **FK** para `Inventario(id_inventario)`         |
-| id_casa         | Relacionamento com a entidade Casa           | int          | 4       | **FK** para `Casa(id_casa)`                     |
-| id_area         | Relacionamento com a entidade Área           | int          | 4       | **FK** para `Area(id_area)`                     |
-| id_habilidade   | Relacionamento com a entidade Habilidades    | int          | 4       | **FK** para `Habilidades(id_habilidade)`        |
-| id_feitico      | Relacionamento com a entidade Feitiços       | int          | 4       | **FK** para `Feiticos(id_feitico)`              |
+| varinha     | Descrição da varinha do jogador            | Text         | 500       | **NOT NULL**              |
+| id_casa      | Relacionamento com a entidade Casa     | int          | 4       | **FK** para `Casa(id_casa)`, **NOT NULL**              |
+
+---
+
+## **NPC**  
+**Descrição:** Representa um NPC no jogo.
+
+| Nome               | Descrição                                  | Tipo de dado | Tamanho | Restrições de domínio                         |
+|--------------------|--------------------------------------------|--------------|---------|-----------------------------------------------|
+| falas            | Contém as falas do NPC              | Text         | 500       | **NOT NULL**            |
+
+---
+
+### **Professor**
+**Descrição**: Atributos específicos de NPCs do tipo **Professor**.
+
+| Nome                | Descrição                                | Tipo de dado | Tamanho  | Restrições de domínio                    |
+|---------------------|------------------------------------------|--------------|----------|------------------------------------------|
+| vantagens   | Informa quais as vantagens que o professor possui      | Text        | 500        | **NOT NULL**               |
+| disciplina       | Nome da disciplina que o professor ministra | Varchar | 50       | **NOT NULL** |
+| id_casa      | Relacionamento com a entidade Casa     | int          | 4       | **FK** para `Casa(id_casa)`, **NOT NULL**              |
+---
+
+### **Aluno** 
+**Descrição**: Atributos específicos de NPCs do tipo **Aluno**.
+
+| Nome                | Descrição                                | Tipo de dado | Tamanho  | Restrições de domínio                    |
+|---------------------|------------------------------------------|--------------|----------|------------------------------------------|
+| vantagens       | Vantagens do aluno                       | Text        | 500        |  **NOT NULL**   |
+| id_casa      | Relacionamento com a entidade Casa     | int          | 4       | **FK** para `Casa(id_casa)`, **NOT NULL**              |
+
+---
+
+## **Fred e Jorge**  
+**Descrição:** Representa o Fred e Jorge.
+
+| Nome            | Descrição                                    | Tipo de dado | Tamanho | Restrições de domínio                           |
+|-----------------|----------------------------------------------|--------------|---------|-------------------------------------------------|
+| id_casa      | Relacionamento com a entidade Casa     | int          | 4       | **FK** para `Casa(id_casa)`, **NOT NULL**              |
+
+---
+
+### **Inimigo**
+**Descrição**: Não possui nenhum atributo exclusivo.
 
 ---
 
@@ -26,9 +80,9 @@
 | Nome            | Descrição                                  | Tipo de dado | Tamanho | Restrições de domínio                         |
 |-----------------|--------------------------------------------|--------------|---------|-----------------------------------------------|
 | id_inventario   | Identificador único do inventário          | int          | 4       | **PK**, **IDENTITY**, **NOT NULL**            |
-| id_item           | Identificador do item no inventário               | int         | 4     | **FK** para `Item(id_item)`                                |
+| id_item       | Identificador do item no inventário               | int         | 4     | **FK** para `Item(id_item)`                                |
 | tamanho         | Capacidade total do inventário             | int          | 4       | **NOT NULL**, 1 <= tamanho <= 100             |
-| id_jogador      | Relacionamento com a entidade Jogador      | int          | 4       | **FK** para `Jogador(id_jogador)`             |
+| id_personagem      | Relacionamento com a entidade Personagem     | int          | 4       | **FK** para `Personagem(id_personagem)`, **NOT NULL**             |
 
 ---
 
@@ -55,6 +109,7 @@
 | area_norte         | Coordenada para a área norte               | Varchar      | 50      | **NOT NULL**                                  |
 | area_leste         | Coordenada para a área leste               | Varchar      | 50      | **NOT NULL**                                  |
 | area_oeste         | Coordenada para a área oeste               | Varchar      | 50      | **NOT NULL**                                  |
+| id_regiao      | Relacionamento com a entidade Região   | int          | 4       | **FK** para `Região(id_regiao)`, **NOT NULL**              |
 
 ---
 
@@ -65,6 +120,7 @@
 |---------------------|--------------------------------------------|--------------|---------|-----------------------------------------------|
 | id_regiao           | Identificador único da região              | int          | 4       | **PK**, **IDENTITY**, **NOT NULL**            |
 | descricao_regiao    | Descrição detalhada da região              | Text         | 500     | **NOT NULL**                                  |
+| id_mapa      | Relacionamento com a entidade Mapa     | int          | 4       | **FK** para `Mapa(id_mapa)`, **NOT NULL**              |
 
 ---
 
@@ -74,101 +130,26 @@
 | Nome               | Descrição                                  | Tipo de dado | Tamanho | Restrições de domínio                         |
 |--------------------|--------------------------------------------|--------------|---------|-----------------------------------------------|
 | id_mapa            | Identificador único do mapa                | int          | 4       | **PK**, **IDENTITY**, **NOT NULL**            |
-| id_regiao          | Relacionamento com a entidade Região       | int          | 4       | **FK** para `Regiao(id_regiao)`               |
 
 ---
 
-## **NPC**  
-**Descrição:** Representa um NPC no jogo, com atributos para diferenciar entre professor, inimigo, aluno e Fred/Jorge.
-
-| Nome               | Descrição                                  | Tipo de dado | Tamanho | Restrições de domínio                         |
-|--------------------|--------------------------------------------|--------------|---------|-----------------------------------------------|
-| id_NPC             | Identificador único do NPC                 | int          | 4       | **PK**, **IDENTITY**, **NOT NULL**            |
-| id_instancia_NPC   | Relacionamento com a entidade InstanciaNPC | int          | 4       | **FK** para `InstanciaNPC(id_instancia_NPC)`  |
-
----
-
-## **InstanciaNPC**  
-**Descrição:** Define a instância específica de um NPC, incluindo seu nome, tipo e falas.
-
-| Nome                | Descrição                                  | Tipo de dado | Tamanho | Restrições de domínio                         |
-|---------------------|--------------------------------------------|--------------|---------|-----------------------------------------------|
-| nome                | Nome do NPC                                | Varchar      | 100     | **NOT NULL**                                  |
-| tipo_NPC            | Tipo do NPC (Professor, Inimigo, Aluno, Fred e Jorge) | Varchar | 50      | **NOT NULL**                                  |
-| falas               | Falas atribuídas ao NPC                    | Text         | 500     | **NOT NULL**                                  |
-
----
-
-### **Professor**
-**Descrição**: Atributos específicos de NPCs do tipo **Professor**.
-
-| Nome                | Descrição                                | Tipo de dado | Tamanho  | Restrições de domínio                    |
-|---------------------|------------------------------------------|--------------|----------|------------------------------------------|
-| id_professor    | Identificador único do Professor         | int          | 4        | **PK, IDENTITY, NOT NULL**               |
-| id_npc          | Identificador do NPC (referência a InstanciaNPC) | int | 4       | **FK** para `InstanciaNPC(id_instancia_NPC)`, **NOT NULL** |
-| casa            | Casa à qual o professor pertence         | Varchar   | 50        |                                          |
-| disciplina      | Disciplina que o professor ensina        | Varchar  | 100        |                                          |
-| item            | Item associado ao professor              | int          | 4        | **FK** para `Item(id_item)`               |
-| vantagens       | Vantagens do professor                   | Text         | 500        |                                          |
-
----
-
-### **Inimigo**
-**Descrição**: Atributos específicos de NPCs do tipo **Inimigo**.
-
-| Nome                | Descrição                                | Tipo de dado | Tamanho  | Restrições de domínio                    |
-|---------------------|------------------------------------------|--------------|----------|------------------------------------------|
-| id_inimigo      | Identificador único do Inimigo           | int         | 4        | **PK, IDENTITY, NOT NULL**                 |
-| id_npc          | Identificador do NPC (referência a InstanciaNPC) | int | 4        | **FK** para `InstanciaNPC(id_instancia_NPC)`, **NOT NULL** |
-| pontos_vida     | Pontos de vida do inimigo                | int          | 4        | **NOT NULL**                                 |
-|  id_habilidade   | Relacionamento com a entidade Habilidades    | int          | 4       | **FK** para `Habilidades(id_habilidade)`                                            |
-
----
-
-### **Aluno** 
-**Descrição**: Atributos específicos de NPCs do tipo **Aluno**.
-
-| Nome                | Descrição                                | Tipo de dado | Tamanho  | Restrições de domínio                    |
-|---------------------|------------------------------------------|--------------|----------|------------------------------------------|
-| id_aluno       | Identificador único do Aluno             | int          | 4        | **PK, IDENTITY, NOT NULL**                    |
-| id_npc          | Identificador do NPC (referência a InstanciaNPC) | int | 4        | **FK** para `InstanciaNPC(id_instancia_NPC)`, **NOT NULL** |
-| id_casa         | Relacionamento com a entidade Casa           | int          | 4       | **FK** para `Casa(id_casa)`                                       |
-| item            | Item associado ao aluno                  | int          | 4        | **FK** para `Item(id_item)`                  |
-| vantagens       | Vantagens do aluno                       | Text        | 500        |                                     |
-
----
-
-### **Fred e Jorge**
-**Descrição**: Atributos específicos de **Fred e Jorge**, que são NPCs especiais.
-
-| Nome                | Descrição                                | Tipo de dado | Tamanho  | Restrições de domínio                    |
-|---------------------|------------------------------------------|--------------|----------|------------------------------------------|
-| id_fred_jorge   | Identificador único de Fred ou Jorge     | int          | 4        | **PK, IDENTITY, NOT NULL**                 |
-| id_npc          | Identificador do NPC (referência a InstanciaNPC) | int | 4        | FK, Not Null, Referência a **InstanciaNPC** |
-| inventarios     | Inventários de Fred ou Jorge             | Text         | 4        | Pode ser uma lista de IDs ou uma referência para a tabela **Inventário** |
-| item            | Item associado ao Fred ou Jorge                  | int          | 4        | **FK** para `Item(id_item)` |
-| area            | Área onde Fred ou Jorge se encontra      | Varchar  | 100        |                                          |
-
----
-
-## **Feitiços**  
+## **Feitiço**  
 **Descrição:** Representa feitiços disponíveis no jogo, com o tipo e habilidade necessária para usá-los.
 
 | Nome               | Descrição                                  | Tipo de dado | Tamanho | Restrições de domínio                         |
 |--------------------|--------------------------------------------|--------------|---------|-----------------------------------------------|
 | id_feitico         | Identificador único do feitiço             | int          | 4       | **PK**, **IDENTITY**, **NOT NULL**            |
 | tipo_feitico       | Tipo do feitiço                            | Varchar      | 100     | **NOT NULL**                                  |
-| id_habilidade      | Relacionamento com a entidade Habilidades  | int          | 4       | **FK** para `Habilidades(id_habilidade)`      |
+| habilidade-requerida    | Tipo da habilidade requerida | int          | 4       | **FK** para `Habilidade(id_habilidade)`, **NOT NULL**      |
 
 ---
 
-## **Habilidades**  
+## **Habilidade**  
 **Descrição:** Representa as habilidades do jogador, como Inteligência, Coragem, Lealdade e Ambição, com os respectivos níveis.
 
 | Nome               | Descrição                                  | Tipo de dado | Tamanho | Restrições de domínio                         |
 |--------------------|--------------------------------------------|--------------|---------|-----------------------------------------------|
 | id_habilidade      | Identificador único da habilidade          | int         | 4      | **PK**, **IDENTITY**, **NOT NULL**            |
-| tipo               | Tipo da habilidade (Inteligência, Coragem, Lealdade, Ambição) | Varchar  | 50      | **NOT NULL**                                  |
 | nivel              | Nível da habilidade                        | int          | 4      | **NOT NULL**, 1 <= nivel <= 100               |
 
 ---
@@ -179,7 +160,6 @@
 | Nome               | Descrição                                  | Tipo de dado | Tamanho | Restrições de domínio                         |
 |--------------------|--------------------------------------------|--------------|---------|-----------------------------------------------|
 | id_item            | Identificador único do item                | int          | 4       | **PK**, **IDENTITY**, **NOT NULL**            |
-| id_instancia_item  | Relacionamento com a entidade InstanciaItem | int          | 4       | **FK** para `InstanciaItem(id_instancia_item)` |
 
 ### **Poção**  
 **Descrição:** Representa uma poção no jogo, com tipo e efeito.
@@ -195,7 +175,7 @@
 | Nome               | Descrição                                  | Tipo de dado | Tamanho | Restrições de domínio                         |
 |--------------------|--------------------------------------------|--------------|---------|-----------------------------------------------|
 | habilidade         | Habilidade que o livro ensina              | Varchar      | 50      | **NOT NULL**                                  |
-| paginas            | Número de páginas do livro                 | int      | 4       | **NOT NULL**, 1 <= paginas <= 1000            |
+| nome-feitico            | Nome do feitiço ensinado pelo livro               | Varchar      | 50       | **NOT NULL**         |
 
 ---
 
@@ -205,5 +185,5 @@
 | Nome               | Descrição                                  | Tipo de dado | Tamanho | Restrições de domínio                         |
 |--------------------|--------------------------------------------|--------------|---------|-----------------------------------------------|
 | id_missao          | Identificador único da missão              | int          | 4       | **PK**, **IDENTITY**, **NOT NULL**            |
-| recompensas        | Recompensas obtidas ao completar a missão  | Text         | 500     | **NOT NULL**                                  |
-| participantes      | Lista de participantes da missão           | Text         | 500     | **NOT NULL**                                  |
+| recompensa       | Recompensas obtidas ao completar a missão  | Text         | 500     | **NOT NULL**                                  |
+| participante      | Lista de participantes da missão           | Text         | 500     | **NOT NULL**                                  |
