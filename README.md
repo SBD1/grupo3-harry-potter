@@ -45,3 +45,6 @@ No nosso jogo, você assumirá o papel de um jovem bruxo que começa sua jornada
   </tr>
 </table>
 </center>
+
+## Entregas
+* [Módulo 1](docs/modulo1)
