@@ -48,3 +48,4 @@ No nosso jogo, você assumirá o papel de um jovem bruxo que começa sua jornada
 
 ## Entregas
 * [Módulo 1](docs/modulo1)
+* [Vídeo Módulo 1](https://www.youtube.com/watch?v=uwA-FGvQ1nI)
