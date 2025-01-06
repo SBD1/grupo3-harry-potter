@@ -14,31 +14,31 @@ No nosso jogo, você assumirá o papel de um jovem bruxo que começa sua jornada
   <tr>
     <td align="center">
       <a href="https://github.com/andre-maia51">
-        <img src="https://github.com/andre-maia51.png" width="190" style="border-radius: 50%;" alt="Diego Carlito"/>
+        <img src="https://github.com/andre-maia51.png" width="190" style="border-radius: 50%;" alt="André Maia"/>
         <br/><sub><b>André Maia - 222037648</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/JoseViniciusQueiroz">
-        <img src="https://github.com/JoseViniciusQueiroz.png" width="190" style="border-radius: 50%;" alt="Márcio Henrique"/>
+        <img src="https://github.com/JoseViniciusQueiroz.png" width="190" style="border-radius: 50%;" alt="José Vinícius"/>
         <br/><sub><b>José Vinicius - 222006884</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/paolaalim">
-        <img src="https://github.com/paolaalim.png" width="190" style="border-radius: 50%;" alt="Márcio Henrique"/>
+        <img src="https://github.com/paolaalim.png" width="190" style="border-radius: 50%;" alt="Paola Nascimento"/>
         <br/><sub><b>Paola Nascimento - 211062713</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/PhFariaa">
-        <img src="https://github.com/PhFariaa.png" width="190" style="border-radius: 50%;" alt="Márcio Henrique"/>
+        <img src="https://github.com/PhFariaa.png" width="190" style="border-radius: 50%;" alt="Pedro Henrique"/>
         <br/><sub><b>Pedro Henrique - 222007086</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/zlimaz">
-        <img src="https://github.com/zlimaz.png" width="190" style="border-radius: 50%;" alt="Márcio Henrique"/>
+        <img src="https://github.com/zlimaz.png" width="190" style="border-radius: 50%;" alt="Miguel Arthur"/>
         <br/><sub><b>Miguel Arthur - 211062320</b></sub>
       </a>
     </td>
