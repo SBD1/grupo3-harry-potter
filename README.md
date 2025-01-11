@@ -3,7 +3,7 @@
 ## Sobre o Universo
 O universo de Harry Potter é mundialmente conhecido. Sua primeira aparição foi nos livros homônimos, que se tornaram um fenômeno global. Após todo o sucesso dos livros, a séria foi adaptada para o cinema, inspirou jogos eletrônicos, peças de teatro e até mesmo parques temáticos. Até hoje, a franquia mantém uma legião de fãs de todas as idades ao redor do mundo.
 
-<div align="center"><img src="docs/images/hogwarts.jpg" height=auto width=auto></div>
+<div align="center"><img src="assets/readme-img/hogwarts.png" height=auto width=auto></div>
 
 ## Sobre o Jogo
 No nosso jogo, você assumirá o papel de um jovem bruxo que começa sua jornada escolar na escola de magia e bruxaria de Hogwarts. Enquanto explora o mundo mágico, você enfrentará um bruxo das trevas e seus seguidores, que estão em busca de um artefato perdido. Este artefato, criado pelos quatro fundadores de Hogwarts, foi responsável por garantir a paz e a segurança da escola por décadas. Sua missão é recuperar o artefato para garantir a paz e a segurança de Hogwarts.
