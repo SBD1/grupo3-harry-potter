@@ -75,6 +75,7 @@ O dicionário de dados é um documento que contém informações detalhadas sobr
 
 ### **Inimigo**
 **Descrição**: Representa um inimigo que o jogador enfrentará ao longo do jogo.
+
 | Nome                | Descrição                                | Tipo de dado | Tamanho  | Restrições de domínio                    |
 |---------------------|------------------------------------------|--------------|----------|------------------------------------------|
 | idInimigo         | Identificador único do Inimigo              | INT         | 4       | **PK**, **FK** para `NPC(idNPC)`,**NOT NULL**            |
