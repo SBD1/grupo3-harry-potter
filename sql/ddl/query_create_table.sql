@@ -2,13 +2,15 @@ CREATE TYPE HabilidadeTipo AS ENUM('Inteligência', 'Ambição', 'Lealdade', 'Co
 
 CREATE TABLE IF NOT EXISTS Mapa (
 	idMapa INT NOT NULL PRIMARY KEY,
-	descricaoMapa TEXT NOT NULL
+	descricaoMapa TEXT NOT NULL,
+	nome VARCHAR(50) NOT NULL;
 );
 
 CREATE TABLE IF NOT EXISTS Regiao (
 	idRegiao INT NOT NULL PRIMARY KEY,
 	idMapa INT NOT NULL,
 	descricaoRegiao TEXT NOT NULL,
+	nome VARCHAR(50) NOT NULL;
 
 	FOREIGN KEY (idMapa) REFERENCES Mapa (idMapa)
 	
@@ -50,12 +52,21 @@ CREATE TABLE IF NOT EXISTS NPC (
 
 CREATE TABLE IF NOT EXISTS Vantagem (
 	idVantagem INT NOT NULL PRIMARY KEY,
-	idPersonagem INT NOT NULL,
 	nome VARCHAR(50) NOT NULL,
 	descricao TEXT NOT NULL,
 
 	FOREIGN KEY (idPersonagem) REFERENCES NPC (idPersonagem)
 );
+
+CREATE TABLE IF NOT EXISTS PersonagempossuiVantagem ( 
+	idPersonagem int NOT NULL,                                                    
+	idVantagem int NOT NULL,
+	                                                                
+	PRIMARY KEY (idPersonagem,idVantagem),                 
+	FOREIGN KEY (idPersonagem) REFERENCES NPC (idPersonagem),                       
+	FOREIGN KEY (idVantagem) REFERENCES Vantagem (idVantagem)        
+);
+
 
 CREATE TABLE IF NOT EXISTS PC (
 	idPersonagem INT NOT NULL PRIMARY KEY,
