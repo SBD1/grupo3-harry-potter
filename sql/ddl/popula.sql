@@ -87,13 +87,13 @@ VALUES
 
 
 -- Professor
-INSERT INTO Professor (idPersonagem,idCasa,disciplina,idVantagem)
+INSERT INTO Professor (idPersonagem,idCasa,disciplina)
 VALUES                                                                          
-(1,1,'Defesa Contra as Artes das Trevas',2),                                    
-(2,2,'Poções',1),                                                               
-(3,1,'Transfiguração',3),                                                       
-(10,4,'Feitiços',1),                                                            
-(11,3,'Herbologia',3);
+(1,1,'Defesa Contra as Artes das Trevas'),                                    
+(2,2,'Poções'),                                                               
+(3,1,'Transfiguração'),                                                       
+(10,4,'Feitiços'),                                                            
+(11,3,'Herbologia');
 
 
 -- Alunos 
