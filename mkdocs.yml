@@ -11,6 +11,8 @@ nav:
       - Dicionário de dados: "modulo1/DD_HarryPotter_v1.0.md"
       - DER: "modulo1/DER_HarryPotter_v1.0.md"
       - MR: "modulo1/MR_HarryPotter_v1.0.md"
+    - Módulo 2:
+      - Dicionário de Dados: "modulo2/DD_HarryPotter_v2.0.md"
 
 theme:
   name: material
