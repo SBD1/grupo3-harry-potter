@@ -147,6 +147,7 @@ CREATE TABLE IF NOT EXISTS VantagemCasa (
 
 CREATE TABLE IF NOT EXISTS Habilidade (
 	idHabilidade INT NOT NULL PRIMARY KEY,
+	nome VARCHAR(50) NOT NULL,
 	nivel INT NOT NULL,
 	descricao TEXT NOT NULL,
 	tipo HabilidadeTipo NOT NULL

@@ -83,8 +83,10 @@ VALUES
 (11,'Nessa floresta há sempre monstros a espreita cuidado!'),
 (6,'Você realmente acha que é digno de estar no mesmo lugar que eu?'),          
 (5,'Você sabe, quando eu pensei que minha vida na escola de magia poderia ficar mais estranha, eu não imaginava que estaríamos lutando contra dragões e... bom, enfrentando coisas ainda mais bizarras. Só mais um dia com os amigos, né?'),    
-(4,'Vocês sabem, não é apenas sobre ser corajoso. A verdadeira chave é usar a inteligência para resolver os problemas. Se pararmos para pensar e estudar as coisas com atenção, não há nada que não possamos enfrentar.');
-
+(4,'Vocês sabem, não é apenas sobre ser corajoso. A verdadeira chave é usar a inteligência para resolver os problemas. Se pararmos para pensar e estudar as coisas com atenção, não há nada que não possamos enfrentar.'),
+(7,'huuuu'), 
+(8,'haaa'), 
+(9,'Eu sei que nunca fui o mais forte ou o mais esperto, mas aprendi que a verdadeira coragem não é não ter medo... é enfrentá-lo, mesmo quando tudo dentro de você diz para correr.'); 
 
 -- Professor
 INSERT INTO Professor (idPersonagem,idCasa,disciplina)
@@ -117,6 +119,21 @@ VALUES
 (6,2),                                                                          
 (5,1),                                                                          
 (4,1);
+
+--PersonagemPossuiVantagem 
+INSERT INTO PersonagemPossuiVantagem (idPersonagem,idVantagem)   
+VALUES                                                                          
+(1,1),                                                                          
+(2,1),                                                                          
+(11,3);
+
+
+--Inimigo
+INSERT INTO Inimigo (idPersonagem)                               
+VALUES                                                                          
+(7), 
+(8);
+
 
 
 
