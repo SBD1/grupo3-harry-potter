@@ -3,14 +3,14 @@ CREATE TYPE HabilidadeTipo AS ENUM('Inteligência', 'Ambição', 'Lealdade', 'Co
 CREATE TABLE IF NOT EXISTS Mapa (
 	idMapa INT NOT NULL PRIMARY KEY,
 	descricaoMapa TEXT NOT NULL,
-	nome VARCHAR(50) NOT NULL;
+	nome VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Regiao (
 	idRegiao INT NOT NULL PRIMARY KEY,
 	idMapa INT NOT NULL,
 	descricaoRegiao TEXT NOT NULL,
-	nome VARCHAR(50) NOT NULL;
+	nome VARCHAR(50) NOT NULL,
 
 	FOREIGN KEY (idMapa) REFERENCES Mapa (idMapa)
 	
@@ -53,14 +53,12 @@ CREATE TABLE IF NOT EXISTS NPC (
 CREATE TABLE IF NOT EXISTS Vantagem (
 	idVantagem INT NOT NULL PRIMARY KEY,
 	nome VARCHAR(50) NOT NULL,
-	descricao TEXT NOT NULL,
-
-	FOREIGN KEY (idPersonagem) REFERENCES NPC (idPersonagem)
+	descricao TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS PersonagempossuiVantagem ( 
-	idPersonagem int NOT NULL,                                                    
-	idVantagem int NOT NULL,
+CREATE TABLE IF NOT EXISTS PersonagemPossuiVantagem ( 
+	idPersonagem INT NOT NULL,                                                    
+	idVantagem INT NOT NULL,
 	                                                                
 	PRIMARY KEY (idPersonagem,idVantagem),                 
 	FOREIGN KEY (idPersonagem) REFERENCES NPC (idPersonagem),                       
@@ -81,11 +79,9 @@ CREATE TABLE IF NOT EXISTS Professor (
 	idPersonagem INT NOT NULL PRIMARY KEY,
 	idCasa INT NOT NULL,
 	disciplina VARCHAR(50) NOT NULL,
-	idVantagem INT NOT NULL,
 	
 	FOREIGN KEY (idPersonagem) REFERENCES NPC (idPersonagem),
-	FOREIGN KEY (idCasa) REFERENCES Casa (idCasa),
-	FOREIGN KEY (idVantagem) REFERENCES Vantagem (idVantagem)
+	FOREIGN KEY (idCasa) REFERENCES Casa (idCasa)
 );
 
 CREATE TABLE IF NOT EXISTS Aluno (
@@ -141,10 +137,11 @@ CREATE TABLE IF NOT EXISTS AlunoPorCasa (
 );
 
 CREATE TABLE IF NOT EXISTS VantagemCasa (
-	idVantagemCasa INT NOT NULL PRIMARY KEY,
+	idVantagem INT NOT NULL,
 	idCasa INT NOT NULL,
-	descricao TEXT NOT NULL,
 
+	PRIMARY KEY (idVantagem, idCasa), 
+	FOREIGN KEY (idVantagem) REFERENCES VANTAGEM (idVantagem),
 	FOREIGN KEY (idCasa) REFERENCES Casa (idCasa)
 );
 
