@@ -229,6 +229,9 @@ def create_tables(): #cria cada tabela do banco de dados
             efeito TEXT NOT NULL,
             FOREIGN KEY (idItem) REFERENCES Item (idItem)
         );
+        """,
+        """
+            SELECT SETVAL('personagem_idpersonagem_seq', 12, false);
         """
     ]
     try:
