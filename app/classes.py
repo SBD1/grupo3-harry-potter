@@ -1,7 +1,7 @@
 #definir as classes
 
 class Character: #definição da classe de Personagens
-        def __init__(self, id_character, life, level, name, id_area, idHouse):
+        def __init__(self, id_character, id_area, life, level, name, idHouse=0):
             self.id_character = id_character
             self.life = life
             self.level = level

@@ -3,10 +3,15 @@ from database import Database
 from classes import *
 import sys
 import os
-import random
+import platform
 
-def clear(): #limpa o terminal do SO
-    os.system('cls' if os.name == 'nt' else 'clear')
+def clear():
+    system_name = platform.system().lower()
+    if system_name == "windows":
+        os.system("cls")
+    else:
+        os.system("clear")
+
 
 class Game:
     def __init__(self):
@@ -62,6 +67,29 @@ class Game:
             self.start()
 
         self.player = Database.create_character(self.connection, name)
+        self.player = Database.load_character(self.connection, name)
+        self.new_game()
+    def load_character(self):
+        clear()
+        print('Digite o nome do seu personagem: ')
+        name = input()
+        self.player = Database.load_character(self.connection, name)
+        if self.player.id_character == -1:
+            print('Personagem não encontrado!\n')
+        else:
+            self.new_game()
+
+
+    def new_game(self):
+        while True:
+            Database.get_area_description(self.connection, self.player)
+            Database.get_areas(self.connection, self.player)
+
+            direction = input()
+            #fazer ele andar
+            Database.change_area(self.connection, self.player, direction)
+            Database.get_area_description(self.connection, self.player)
+
 
 
 if __name__ == '__main__':
