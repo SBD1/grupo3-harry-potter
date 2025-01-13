@@ -42,7 +42,7 @@ def create_tables(): #cria cada tabela do banco de dados
         """,
         """
         CREATE TABLE IF NOT EXISTS Personagem (
-            idPersonagem INT NOT NULL PRIMARY KEY,
+            idPersonagem SERIAL PRIMARY KEY,
             idArea INT NOT NULL,
             vida INT NOT NULL,
             nivel INT NOT NULL,
@@ -230,14 +230,8 @@ def create_tables(): #cria cada tabela do banco de dados
         );
         """
     ]
-    modified_sql_queries = []
-    for query in commands:
-        modified_query = query
-        modified_query = modified_query.replace('INT NOT NULL PRIMARY KEY', 'SERIAL PRIMARY KEY')
-        modified_sql_queries.append(modified_query)
-
     try:
-        for command in modified_sql_queries:
+        for command in commands:
             cur.execute(command)
         connection.commit()
     except (Exception, psycopg2.DatabaseError) as error:
