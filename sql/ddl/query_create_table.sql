@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS Area (
 	areaSul INT NOT NULL,
 	areaLeste INT NOT NULL,
 	areaOeste INT NOT NULL,
+	descricaoArea TEXT NOT NULL,
 
 	FOREIGN KEY (idRegiao) REFERENCES Regiao (idRegiao)
 );
