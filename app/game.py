@@ -67,8 +67,8 @@ class Game:
             self.start()
 
         self.player = Database.create_character(self.connection, name)
+        self.player = Database.load_character(self.connection, name)
         self.new_game()
-
     def load_character(self):
         clear()
         print('Digite o nome do seu personagem: ')
@@ -81,16 +81,14 @@ class Game:
 
 
     def new_game(self):
-        print('SEJA BEM VINDO À HOGWARTS, VOCÊ SE ENCONTRA NO PORTÃO PRINCIPAL DA ESCOLA\n'
-              'VOCÊ DEVE ESCOLHER PARA QUAL LADO IRÁ SEGUIR, NORTE, SUL, LESTE OU OESTE\n'
-              'DIGITE A DIREÇÃO QUE DESEJA SEGUIR:\n'
-              )
-        #recuperar as regioes possiveis
-        Database.get_areas(self.connection, self.player)
+        while True:
+            Database.get_area_description(self.connection, self.player)
+            Database.get_areas(self.connection, self.player)
 
-        direction = input()
-        #fazer ele andar
-        Database.change_area(self.connection, self.player, direction)
+            direction = input()
+            #fazer ele andar
+            Database.change_area(self.connection, self.player, direction)
+            Database.get_area_description(self.connection, self.player)
 
 
 
