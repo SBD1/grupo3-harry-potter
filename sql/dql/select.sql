@@ -1,34 +1,29 @@
--- listar todas as casas
+-- Listar todas as casas
 SELECT * FROM Casa;
 
--- Buscar descrição de um mapa especifico 
+-- Buscar descrição de um mapa específico
 SELECT descricaoMapa FROM Mapa WHERE nome = 'Hogwarts';
 
--- Listar regiões de um mapa especifico
+-- Listar regiões de um mapa específico
 SELECT nome, descricaoRegiao FROM Regiao WHERE idMapa = 1;
 
--- Listar todas as áreas de  uma região especifica
-
+-- Listar todas as áreas de uma região específica
 SELECT nome, areaNorte, areaSul, areaLeste, areaOeste FROM Area WHERE idRegiao = 1;
 
 -- Listar todos os inimigos
-
 SELECT P.nome
 FROM Inimigo I
 JOIN Personagem P ON I.idPersonagem = P.idPersonagem;
 
 -- Listar todos os personagens e suas áreas
-
 SELECT nome, idArea FROM Personagem;
 
-
-
---  Listar todos os personagens e suas respectivas casas
+-- Listar todos os personagens e suas respectivas casas
 SELECT personagem.nome AS Nome, casa.nome AS Casa
 FROM personagem
 JOIN casa ON personagem.id_casa = casa.id;
 
---  Contar quantos personagens existem em cada casa
+-- Contar quantos personagens existem em cada casa
 SELECT casa.nome AS Casa, COUNT(personagem.id) AS Total_Personagens
 FROM casa
 LEFT JOIN personagem ON casa.id = personagem.id_casa
@@ -70,11 +65,11 @@ JOIN participacao ON evento.id = participacao.id_evento
 JOIN personagem ON participacao.id_personagem = personagem.id
 WHERE personagem.nome = 'Harry Potter';
 
---  Listar todas as criaturas mágicas e suas descrições
+-- Listar todas as criaturas mágicas e suas descrições
 SELECT nome, descricao
 FROM criatura_magica;
 
---  Listar todas as disciplinas oferecidas em Hogwarts
+-- Listar todas as disciplinas oferecidas em Hogwarts
 SELECT nome, descricao
 FROM disciplina;
 
@@ -98,7 +93,7 @@ GROUP BY feitico.nome
 ORDER BY Utilizacoes DESC
 LIMIT 1;
 
---  Identificar as criaturas mágicas que apareceram em mais de um evento
+-- Identificar as criaturas mágicas que apareceram em mais de um evento
 SELECT criatura_magica.nome AS Criatura, COUNT(evento.id) AS Total_Eventos
 FROM criatura_magica
 JOIN evento_criatura ON criatura_magica.id = evento_criatura.id_criatura
@@ -106,19 +101,18 @@ JOIN evento ON evento.id = evento_criatura.id_evento
 GROUP BY criatura_magica.nome
 HAVING COUNT(evento.id) > 1;
 
---  Consultar quais casas têm o maior número de vitórias em torneios
+-- Consultar quais casas têm o maior número de vitórias em torneios
 SELECT casa.nome AS Casa, COUNT(torneio.id) AS Vitorias
 FROM casa
 JOIN torneio ON casa.id = torneio.id_casa_vencedora
 GROUP BY casa.nome
 ORDER BY Vitorias DESC;
 
---  Listar os professores que lecionaram para uma turma x
+-- Listar os professores que lecionaram para uma turma específica
 SELECT professor.nome AS Professor
 FROM professor
 JOIN turma ON professor.id = turma.id_professor
-WHERE turma.id = ?
-
+WHERE turma.id = ?;
 
 -- Identificar o personagem com o maior número de participações em eventos
 SELECT personagem.nome AS Nome, COUNT(participacao.id_evento) AS Total_Participacoes
@@ -128,23 +122,18 @@ GROUP BY personagem.nome
 ORDER BY Total_Participacoes DESC
 LIMIT 1;
 
--- Listar informações sobre personagem (nome casa)
-SELECT 
-    p.idPersonagem, 
-    p.nome AS nomePersonagem, 
-    p.vida, 
-    p.nivel, 
-    p.idArea, 
-    j.idPC, 
-    j.varinha, 
-    j.idCasa
-FROM 
-    Personagem p
-LEFT JOIN 
-    Jogador j ON p.idPersonagem = j.idPC
-WHERE 
-    p.idPersonagem = ?;
-
+-- Listar informações sobre personagem (nome, casa)
+SELECT p.idPersonagem, 
+       p.nome AS nomePersonagem, 
+       p.vida, 
+       p.nivel, 
+       p.idArea, 
+       j.idPC, 
+       j.varinha, 
+       j.idCasa
+FROM Personagem p
+LEFT JOIN Jogador j ON p.idPersonagem = j.idPC
+WHERE p.idPersonagem = ?;
 
 -- Listar as habilidades dos personagens (feitiços e objetos mágicos associados)
 SELECT personagem.nome AS Nome, 
@@ -156,7 +145,7 @@ LEFT JOIN feitico ON participacao.id_feitico = feitico.id
 LEFT JOIN objeto ON personagem.id = objeto.id_personagem
 GROUP BY personagem.nome;
 
--- 23. Consultar a vida do PC
+-- Consultar a vida do PC
 SELECT personagem.nome AS Nome, personagem.vida AS Vida_Atual
 FROM pc
 JOIN personagem ON pc.idpc = personagem.idpersonagem;
