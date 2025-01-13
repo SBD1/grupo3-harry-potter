@@ -31,6 +31,7 @@ def create_tables(): #cria cada tabela do banco de dados
             areaSul INT NOT NULL,
             areaLeste INT NOT NULL,
             areaOeste INT NOT NULL,
+            descricaoArea TEXT NOT NULL,
             FOREIGN KEY (idRegiao) REFERENCES Regiao (idRegiao)
         );
         """,
