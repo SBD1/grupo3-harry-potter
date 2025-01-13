@@ -46,7 +46,7 @@ def create_tables(): #cria cada tabela do banco de dados
             idArea INT NOT NULL,
             vida INT NOT NULL,
             nivel INT NOT NULL,
-            nome VARCHAR(50) NOT NULL,
+            nome VARCHAR(50) NOT NULL UNIQUE,
             FOREIGN KEY (idArea) REFERENCES Area (idArea)
         );
         """,
