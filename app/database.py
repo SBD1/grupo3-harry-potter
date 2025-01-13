@@ -3,7 +3,6 @@ import psycopg2
 from classes import *
 
 
-@staticmethod
 class Database:
     @staticmethod
     def create_connection():
@@ -39,14 +38,59 @@ class Database:
     def change_area(connection, player, direction):
         cursor = connection.cursor()
         #tenho que mudar a area que o personagem está
-        query = (f"""ALTER TABLE Personagem
-                     UPDATE idArea = (SELECT area{direction} FROM Area WHERE idArea = {player.id_area})
-                     WHERE idPersonagem = {player.id_character};
+        #primeiro pegar a area que o personagem está
+        if direction == '1':
+            direction = 'norte'
+        elif direction == '2':
+            direction = 'sul'
+        elif direction == '3':
+            direction = 'leste'
+        elif direction == '4':
+            direction = 'oeste'
+        query_update = (f""" UPDATE Personagem
+                      SET idArea = (SELECT area{direction} FROM Area WHERE idArea = {player.id_area})
+                      WHERE idPersonagem = {player.id_character};
                   """)
+        cursor.execute(query_update)
+
+        query_select = (f""" SELECT idArea FROM Personagem WHERE idPersonagem = {player.id_character}""")
+        cursor.execute(query_select)
+        player.id_area = cursor.fetchone()[0]
+        connection.commit()
 
     @staticmethod
     def get_areas(connection, player):
-        pass
+        cursor = connection.cursor()
+        query = (f"""
+                SELECT 
+                an.nome AS nome_area_norte,
+                asul.nome AS nome_area_sul,
+                ale.nome AS nome_area_leste,
+                aoeste.nome AS nome_area_oeste
+            FROM Area a
+                LEFT JOIN Area an ON a.areaNorte = an.idArea
+                LEFT JOIN Area asul ON a.areaSul = asul.idArea
+                LEFT JOIN Area ale ON a.areaLeste = ale.idArea
+                LEFT JOIN Area aoeste ON a.areaOeste = aoeste.idArea
+            WHERE a.idArea = {player.id_area}
+                """)
+
+        cursor.execute(query)
+        areas = list(cursor.fetchall())
+        areas = areas[0]
+
+        print(f'1- NORTE: {areas[0]}\n'
+              f'2- SUL: {areas[1]}\n'
+              f'3- LESTE: {areas[2]}\n'
+              f'4- OESTE: {areas[3]}\n')
+
+    @staticmethod
+    def get_area_description(connection, player):
+        cursor = connection.cursor()
+        query = f"SELECT descricao FROM Area WHERE idArea = {player.id_area}"
+        cursor.execute(query)
+        area_description = cursor.fetchone()
+        print(area_description[0])
 
 
 def main():
