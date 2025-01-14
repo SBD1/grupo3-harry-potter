@@ -47,5 +47,9 @@ No nosso jogo, você assumirá o papel de um jovem bruxo que começa sua jornada
 </center>
 
 ## Entregas
-* [Módulo 1](docs/modulo1)
+* [Módulo 1](https://sbd1.github.io/2024.2-harry-potter/modulo1/MER_HarryPotter_v1.0/)
 * [Vídeo Módulo 1](https://www.youtube.com/watch?v=uwA-FGvQ1nI)
+
+* [Módulo 2](https://sbd1.github.io/2024.2-harry-potter/modulo2/DD_HarryPotter_v2.0/)
+* [Vídeo Módulo 2]( https://youtu.be/JJzPPajbIc0)
+
