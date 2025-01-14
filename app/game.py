@@ -88,7 +88,7 @@ class Game:
             direction = input()
             #fazer ele andar
             Database.change_area(self.connection, self.player, direction)
-            Database.get_area_description(self.connection, self.player)
+            clear()
 
 
 
