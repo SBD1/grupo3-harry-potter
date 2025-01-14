@@ -23,28 +23,28 @@ VALUES
 (3,3,'Estacao 9 3/4','Estacao de trem secreta que leva para a escola de bruxaria de Hogwarts');
 
 -- Area 
-INSERT INTO Area (idArea, idRegiao, nome, areaNorte, areaSul, areaLeste, areaOeste) 
+INSERT INTO Area (idArea, idRegiao, nome, areaNorte, areaSul, areaLeste, areaOeste, descricaoArea) 
 VALUES
-(1, 1, 'Nada', 1, 1, 1, 1),
-(2, 2, 'Portao de Hogwarts', 3, 4, 5, 6),
-(4, 2, 'Patio exterior', 2, 1, 1, 1),
-(5, 1, 'Salao Principal', 12, 11, 13, 2),
-(6, 1, 'Clareira', 1, 6, 1, 1),
-(7, 1, 'Torre leste', 5, 1, 22, 23),
-(8, 1, 'Torre oeste', 1, 5, 20, 21),
-(9, 1, 'Corredor', 14, 15, 16, 5),
-(10, 1, 'Refeitorio', 1, 13, 1, 1),
-(11, 1, 'Biblioteca', 13, 1, 1, 1),
-(12, 1, 'Primeiro andar', 17, 18, 19, 13),
-(13, 1, 'Sala de aula 1', 1, 16, 1, 1),
-(14, 1, 'Sala de aula 2', 16, 1, 1, 1),
-(15, 1, 'Sala de aula 3', 1, 1, 1, 16),
-(16, 1, 'Dormitório: Grifinória', 1, 1, 1, 12),
-(17, 1, 'Dormitório: Cornival', 1, 1, 12, 1),
-(18, 1, 'Dormitório: Sonserina', 1, 1, 1, 11),
-(19, 1, 'Dormitório: Lufa-lufa', 1, 1, 11, 1),
-(20, 2, 'Floresta Negra', 2, 7, 14, 2),
-(21, 2, 'Campo de Quadribol', 3, 6, 12, 3);
+(1, 1, 'Nada', 1, 1, 1, 1, 'Área sem definição específica.'),
+(2, 2, 'Portao de Hogwarts', 3, 4, 5, 6, 'Portão principal da escola de magia e bruxaria.'),
+(3, 2, 'Patio exterior', 2, 1, 1, 1, 'Pátio ao ar livre utilizado para eventos e encontros.'),
+(4, 1, 'Salao Principal', 12, 11, 13, 2, 'Local de reuniões e celebrações, com longas mesas.'),
+(5, 1, 'Clareira', 1, 6, 1, 1, 'Clareira aberta na floresta, com vegetação baixa.'),
+(6, 1, 'Torre leste', 5, 1, 22, 23, 'Torre localizada no lado leste da escola.'),
+(7, 1, 'Torre oeste', 1, 5, 20, 21, 'Torre localizada no lado oeste da escola.'),
+(8, 1, 'Corredor', 14, 15, 16, 5, 'Corredor conectando diferentes salas e áreas.'),
+(9, 1, 'Refeitorio', 1, 13, 1, 1, 'Área para refeições e lanches dos alunos.'),
+(10, 1, 'Biblioteca', 13, 1, 1, 1, 'Biblioteca com várias seções de livros mágicos.'),
+(11, 1, 'Primeiro andar', 17, 18, 19, 13, 'Primeiro andar da escola, contendo várias salas.'),
+(12, 1, 'Sala de aula 1', 1, 16, 1, 1, 'Sala de aula utilizada para disciplinas iniciais.'),
+(13, 1, 'Sala de aula 2', 16, 1, 1, 1, 'Segunda sala de aula, usada para aulas avançadas.'),
+(14, 1, 'Sala de aula 3', 1, 1, 1, 16, 'Terceira sala de aula, especializada em feitiços.'),
+(15, 1, 'Dormitório: Grifinória', 1, 1, 1, 12, 'Alojamento dos alunos da casa Grifinória.'),
+(16, 1, 'Dormitório: Cornival', 1, 1, 12, 1, 'Alojamento dos alunos da casa Cornival.'),
+(17, 1, 'Dormitório: Sonserina', 1, 1, 1, 11, 'Alojamento dos alunos da casa Sonserina.'),
+(18, 1, 'Dormitório: Lufa-lufa', 1, 1, 11, 1, 'Alojamento dos alunos da casa Lufa-lufa.'),
+(19, 2, 'Floresta Negra', 2, 7, 14, 2, 'Floresta densa com criaturas e segredos perigosos.'),
+(20, 2, 'Campo de Quadribol', 3, 6, 12, 3, 'Campo para o esporte popular dos bruxos, o Quadribol.');
 
 
 -- Personagem 

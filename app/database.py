@@ -87,7 +87,7 @@ class Database:
     @staticmethod
     def get_area_description(connection, player):
         cursor = connection.cursor()
-        query = f"SELECT descricao FROM Area WHERE idArea = {player.id_area}"
+        query = f"SELECT descricaoArea FROM Area WHERE idArea = {player.id_area}"
         cursor.execute(query)
         area_description = cursor.fetchone()
         print(area_description[0])

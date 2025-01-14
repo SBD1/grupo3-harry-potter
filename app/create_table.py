@@ -31,6 +31,7 @@ def create_tables(): #cria cada tabela do banco de dados
             areaSul INT NOT NULL,
             areaLeste INT NOT NULL,
             areaOeste INT NOT NULL,
+            descricaoArea TEXT NOT NULL,
             FOREIGN KEY (idRegiao) REFERENCES Regiao (idRegiao)
         );
         """,
@@ -228,6 +229,9 @@ def create_tables(): #cria cada tabela do banco de dados
             efeito TEXT NOT NULL,
             FOREIGN KEY (idItem) REFERENCES Item (idItem)
         );
+        """,
+        """
+            SELECT SETVAL('personagem_idpersonagem_seq', 12, false);
         """
     ]
     try:
